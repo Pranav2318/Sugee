@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SUGEE ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    background:
+    radial-gradient(circle at top left,#7f5af0,transparent 30%),
+    radial-gradient(circle at bottom right,#ff004c,transparent 30%),
+    #050816;
+}
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.15;
+    z-index:-4;
+    animation:float 10s infinite alternate ease-in-out;
+}
+
+.glow1{
+    background:#7f5af0;
+    top:-100px;
+    left:-100px;
+}
+
+.glow2{
+    background:#ff004c;
+    bottom:-100px;
+    right:-100px;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0px);
+    }
+    to{
+        transform:translateY(40px);
+    }
+}
+
+/* NETFLIX INTRO */
+
+.netflix-intro{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:100000;
+    overflow:hidden;
+}
+
+.netflix-logo{
+    font-size:7rem;
+    font-weight:900;
+    color:#e50914;
+    letter-spacing:8px;
+    text-shadow:
+    0 0 10px #e50914,
+    0 0 20px #e50914,
+    0 0 40px #e50914;
+    transform:scale(0.5);
+    opacity:0;
+}
+
+.netflix-intro::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        to right,
+        transparent,
+        rgba(229,9,20,0.3),
+        transparent
+    );
+    animation:shine 2s linear infinite;
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-100%);
+    }
+
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+/* PASSWORD */
+
+.lock-screen{
+    position:fixed;
+    inset:0;
+    background:#050816;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.lock-box{
+    width:400px;
+    max-width:90%;
+    padding:50px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.1);
+    text-align:center;
+}
+
+.lock-box h1{
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+.lock-box p{
+    opacity:0.8;
+    margin-bottom:25px;
+}
+
+.lock-box input{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    outline:none;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    margin-bottom:20px;
+}
+
+.lock-box button{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(45deg,#ff004c,#7f5af0);
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.lock-box button:hover{
+    transform:scale(1.03);
+}
+
+#error{
+    color:#ff4d6d;
+    margin-top:15px;
+    display:block;
+    opacity:0;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    position:relative;
+}
+
+.small-text{
+    letter-spacing:5px;
+    text-transform:uppercase;
+    opacity:0.8;
+    margin-bottom:20px;
+}
+
+.title{
+    font-size:6rem;
+    line-height:1;
+    font-weight:900;
+}
+
+.title span{
+    background:linear-gradient(45deg,#ff004c,#7f5af0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    margin-top:30px;
+    max-width:700px;
+    line-height:1.8;
+    font-size:1.2rem;
+    opacity:0.8;
+}
+
+.enter-btn{
+    margin-top:50px;
+    padding:18px 45px;
+    border:none;
+    border-radius:60px;
+    background:linear-gradient(45deg,#ff004c,#7f5af0);
+    color:white;
+    cursor:pointer;
+    font-size:1rem;
+    transition:0.4s;
+    box-shadow:0 10px 40px rgba(255,0,76,0.4);
+}
+
+.enter-btn:hover{
+    transform:translateY(-5px) scale(1.05);
+}
+
+/* HEARTS */
+
+.hearts span{
+    position:absolute;
+    bottom:-100px;
+    font-size:20px;
+    opacity:0.4;
+    animation:hearts 10s linear infinite;
+}
+
+@keyframes hearts{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:0.5;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+/* GALLERY */
+
+.gallery{
+    min-height:100vh;
+    padding:100px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:4rem;
+    margin-bottom:60px;
+}
+
+.slider-container{
+    position:relative;
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.slider{
+    position:relative;
+    width:100%;
+    height:90vh;
+    overflow:hidden;
+    border-radius:30px;
+    background:black;
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transform:scale(1.05);
+    transition:1s ease;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.slide.active{
+    opacity:1;
+    transform:scale(1);
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:black;
+}
+
+/* NAV BUTTONS */
+
+.nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:10;
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,0.15);
+    color:white;
+    font-size:2rem;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.nav-btn:hover{
+    transform:translateY(-50%) scale(1.1);
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+/* LETTER */
+
+.letter{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.letter-box{
+    max-width:900px;
+    padding:60px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.letter-box h2{
+    font-size:4rem;
+    margin-bottom:30px;
+}
+
+.letter-box p{
+    line-height:2;
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+/* FINAL */
+
+.surprise{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.surprise h1{
+    font-size:5rem;
+    margin-bottom:30px;
+}
+
+.surprise p{
+    max-width:700px;
+    line-height:2;
+    font-size:1.2rem;
+    opacity:0.8;
+}
+
+.glow-btn{
+    margin-top:40px;
+    padding:18px 50px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#111;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.glow-btn:hover{
+    transform:scale(1.1);
+}
+
+/* POPUP PAGE */
+
+#popup-page{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    z-index:99999;
+}
+
+.crack{
+    position:absolute;
+    width:200%;
+    height:5px;
+    background:white;
+    transform:rotate(-20deg);
+    animation:crack 1s forwards;
+}
+
+@keyframes crack{
+
+    0%{
+        width:0;
+        opacity:1;
+    }
+
+    100%{
+        width:200%;
+        opacity:0;
+    }
+
+}
+
+.popup-box{
+    width:700px;
+    max-width:90%;
+    padding:60px;
+    border-radius:35px;
+    text-align:center;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.1);
+    z-index:10;
+}
+
+.popup-box h1{
+    font-size:4rem;
+    margin-bottom:30px;
+}
+
+.popup-box p{
+    line-height:2;
+    font-size:1.2rem;
+}
+
+.balloons{
+    position:absolute;
+    bottom:-100px;
+    font-size:5rem;
+    animation:floatBalloon 8s linear infinite;
+}
+
+@keyframes floatBalloon{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    100%{
+        transform:translateY(-120vh);
+    }
+
+}
+
+.sunflowers{
+    position:absolute;
+    bottom:20px;
+    font-size:4rem;
+    width:100%;
+    text-align:center;
+    animation:sunflowerMove 3s infinite alternate;
+}
+
+@keyframes sunflowerMove{
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(-15px);
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.title{
+    font-size:4rem;
+}
+
+.section-title{
+    font-size:3rem;
+}
+
+.slider{
+    height:70vh;
+}
+
+.letter-box{
+    padding:30px;
+}
+
+.letter-box h2{
+    font-size:3rem;
+}
+
+.surprise h1{
+    font-size:3rem;
+}
+
+.popup-box{
+    padding:35px;
+}
+
+.popup-box h1{
+    font-size:2.5rem;
+}
+
+.popup-box p{
+    font-size:1rem;
+}
+
+.balloons{
+    font-size:3rem;
+}
+
+.sunflowers{
+    font-size:2.5rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<!-- NETFLIX INTRO -->
+
+<div class="netflix-intro" id="netflixIntro">
+
+<h1 class="netflix-logo">
+SUGEE
+</h1>
+
+</div>
+
+<!-- PASSWORD -->
+
+<div class="lock-screen" id="lockScreen">
+
+<div class="lock-box">
+
+<h1>Private Access ❤️</h1>
+
+<p>
+Enter the secret password to unlock your birthday surprise ✨
+</p>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button onclick="checkPassword()">
+Unlock
+</button>
+
+<span id="error">
+Wrong Password 😢
+</span>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hearts">
+
+<span style="left:10%;animation-delay:0s;">💖</span>
+<span style="left:30%;animation-delay:2s;">✨</span>
+<span style="left:50%;animation-delay:4s;">❤️</span>
+<span style="left:70%;animation-delay:1s;">💖</span>
+<span style="left:90%;animation-delay:3s;">✨</span>
+
+</div>
+
+
+<h1 class="title">
+Happy Birthday <br>
+<span>Bestie ❤️</span>
+</h1>
+
+<p class="subtitle">
+Every memory, every smile, every moment —
+all in one beautiful experience ✨
+</p>
+
+<button class="enter-btn" onclick="scrollToGallery()">
+Enter The Experience
+</button>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+<h1 class="section-title">
+Beautiful Memories ✨
+</h1>
+
+<div class="slider-container">
+
+<button class="nav-btn prev" onclick="prevSlide()">
+❮
+</button>
+
+<div class="slider">
+
+<!-- ADD YOUR IMAGES -->
+
+<div class="slide active">
+<img src="./photo3.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo1.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo2jpeg.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo4.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo5.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo6.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo7.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo8.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo9.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo10.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo11.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo12.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo13.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo14.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo18.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo19.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo19.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo20.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo21.jpeg">
+</div>
+
+<div class="slide">
+<img src="./photo22.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo23.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo24.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo25.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo26.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo27.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo28.jpeg">
+</div>
+
+
+<div class="slide">
+<img src="./photo30.jpeg">
+</div>
+
+</div>
+
+<button class="nav-btn next" onclick="nextSlide()">
+❯
+</button>
+
+</div>
+
+</section>
+
+<!-- LETTER -->
+
+<section class="letter">
+
+<div class="letter-box">
+
+<h2>For You 💌</h2>
+
+<p>
+
+To my favorite person💖✨<br><br>
+
+Happyyyy birthdayyyy my madam 🎂❤️<br><br>
+
+You are not just someone special to me
+you are my safe place, my comfort, my little happiness 🥺💗
+
+I’m really lucky…
+like seriously lucky… to have u in my life 🍀💖
+I hope this year brings u
+🌸 endless smiles
+🌈 cute little happy moments
+💌 love that feels warm and real
+✨ and everything your heart quietly wishes for
+
+You deserve the sweetest things in life… always 💕
+
+No matter where life goes,
+No matter what happens,
+I’ll always be here for you… okay 🫶💫
+
+Cheering for u, caring for u, and loving u from here 💖
+
+You have a special place in my heart
+that no one can ever take or replace… ever 💗✨
+
+So once again
+Happyyyy birthdayyyy my favorite person 🎂❤️🎉
+
+And just know…
+loving u is something that always feels ryt 💕✨<br><br>
+
+Love u always and forever 💫💖
+
+</p>
+
+</div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="surprise">
+
+<h1>One Last Surprise 🎁</h1>
+
+<p>
+You are one of the best things
+that ever happened in my life ❤️
+</p>
+
+<button class="glow-btn" onclick="showMessage()">
+Click Here
+</button>
+
+</section>
+
+<!-- MUSIC -->
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+/* NETFLIX INTRO */
+
+window.addEventListener("load",()=>{
+
+gsap.to(".netflix-logo",{
+scale:1,
+opacity:1,
+duration:1.5,
+ease:"power4.out"
+})
+
+gsap.to(".netflix-logo",{
+scale:5,
+opacity:0,
+delay:2,
+duration:1.5,
+ease:"power4.in"
+})
+
+gsap.to("#netflixIntro",{
+opacity:0,
+delay:3.2,
+duration:1,
+onComplete:()=>{
+
+document.getElementById("netflixIntro")
+.style.display="none"
+
+}
+})
+
+})
+
+/* PASSWORD */
+
+function checkPassword(){
+
+let password =
+document.getElementById("password").value
+
+if(password === "010705"){
+
+gsap.to("#lockScreen",{
+opacity:0,
+duration:1,
+onComplete:()=>{
+
+document.getElementById("lockScreen")
+.style.display="none"
+
+}
+})
+
+}else{
+
+document.getElementById("error")
+.style.opacity="1"
+
+}
+
+}
+
+/* HERO ANIMATION */
+
+gsap.from(".small-text",{
+y:30,
+opacity:0,
+duration:1
+})
+
+gsap.from(".title",{
+y:80,
+opacity:0,
+duration:1.5
+})
+
+gsap.from(".subtitle",{
+y:40,
+opacity:0,
+delay:0.5,
+duration:1.5
+})
+
+gsap.from(".enter-btn",{
+scale:0,
+opacity:0,
+delay:1,
+duration:1
+})
+
+/* SCROLL */
+
+function scrollToGallery(){
+
+document.getElementById("gallery")
+.scrollIntoView({
+behavior:"smooth"
+})
+
+}
+
+/* SLIDER */
+
+let slides =
+document.querySelectorAll(".slide")
+
+let currentSlide = 0
+
+function showSlide(index){
+
+slides.forEach(slide=>{
+slide.classList.remove("active")
+})
+
+slides[index]
+.classList.add("active")
+
+}
+
+function nextSlide(){
+
+currentSlide++
+
+if(currentSlide >= slides.length){
+currentSlide = 0
+}
+
+showSlide(currentSlide)
+
+}
+
+function prevSlide(){
+
+currentSlide--
+
+if(currentSlide < 0){
+currentSlide = slides.length - 1
+}
+
+showSlide(currentSlide)
+
+}
+
+setInterval(()=>{
+nextSlide()
+},4000)
+
+/* FINAL SURPRISE */
+
+function showMessage(){
+
+let surprisePage =
+document.createElement("div")
+
+surprisePage.innerHTML = `
+
+<div id="popup-page">
+
+<div class="crack"></div>
+
+<div class="popup-box">
+
+<h1>🎉 HAPPY BIRTHDAY 🎉</h1>
+
+<p>
+
+You are the most beautiful part of my life 💖<br><br>
+
+May your smile stay forever,
+your happiness grow everyday,
+and all your dreams come true ✨<br><br>
+
+Thank you for being my comfort,
+my happiness,
+and my favorite person 🌸💫
+
+Once again
+Happpppppyyyyyyyyy Bdayyyyyyyyyyyy My madam 🐼✨
+
+</p>
+
+</div>
+
+<div class="balloons">
+🐼❤️ 🐼💖 🐼✨
+</div>
+
+<div class="sunflowers">
+🌻💖 🌻💖 🌻💖
+</div>
+
+</div>
+
+`
+
+document.body.appendChild(surprisePage)
+
+gsap.from(".popup-box",{
+scale:0,
+rotation:15,
+duration:1,
+ease:"back.out(1.7)"
+})
+
+gsap.from(".balloons",{
+y:300,
+opacity:0,
+duration:2
+})
+
+gsap.from(".sunflowers",{
+y:200,
+opacity:0,
+duration:2,
+delay:0.5
+})
+
+}
+
+</script>
+
+</body>
+</html>
